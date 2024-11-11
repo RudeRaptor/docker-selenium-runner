@@ -2,25 +2,27 @@ pipeline{
     agent any
 
     stages{
+        stage("STARTING GRID IN BACKGROUND MODE"){
+            steps{
+                bat "docker-compose -f grid.yaml up -d"
+
+            }
+        }
         stage("RUNNING TESTS"){
             steps{
-                bat "docker-compose up"
-
-            }
-        }
-        stage("BRINGING GRID DOWN"){
-            steps{
-                bat "docker-compose down"
+                bat "docker-compose -f test-suites.yaml up"
                 
             }
 
         }
-        stage("stage-3"){
-            steps{
-                echo "Hellooo FUUUUCKS DOCKER EXECUTION"
-                
-            }
 
+    }
+
+    post{
+
+        always{
+            bat "docker-compose -f grid.yaml down"
+            bat "docker-compose -f test-suites.yaml down"
         }
     }   
 
