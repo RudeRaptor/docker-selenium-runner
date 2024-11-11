@@ -7,7 +7,8 @@ services:
       - THREAD_COUNT=2
       - TEST_SUITE=vendor-portal-main.xml
     volumes:
-      - /c/Users/User/OneDrive/Documents/Workspace/05-dockerize/grid-test-suites/output/vendor-portal:/home/selenium-docker/test-output
+      - ./output/vendor-portal:/home/selenium-docker/test-output
+      #- /c/Users/User/OneDrive/Documents/Workspace/05-dockerize/grid-test-suites/output/vendor-portal:/home/selenium-docker/test-output
 
   amine-raptor-flight:
     image: raptor22sq/seleniumnew
@@ -17,4 +18,5 @@ services:
       - THREAD_COUNT=4
       - TEST_SUITE=flight-reservation-main.xml
     volumes:
-      - /c/Users/User/OneDrive/Documents/Workspace/05-dockerize/grid-test-suites/output/flight:/home/selenium-docker/test-output
+      - ./output/flight:/home/selenium-docker/test-output
+      #- /c/Users/User/OneDrive/Documents/Workspace/05-dockerize/grid-test-suites/output/flight:/home/selenium-docker/test-output
