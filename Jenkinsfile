@@ -10,7 +10,10 @@ pipeline{
         }
         stage("RUNNING TESTS"){
             steps{
-                bat "docker-compose -f test-suites.yaml up --pull=always --remove-orphans"
+
+                // Echo the image name before running the docker-compose command
+                echo "*********************Pulling Docker image: ${imageName}*************************************"
+                bat "docker-compose -f test-suites.yaml up --pull=always"
                 script{
                     if(fileExists("output/flight/testng-failed.xml") || fileExists("output/vendor-portal/testng-failed.xml")){
                         error("failed tests found !!!") 
