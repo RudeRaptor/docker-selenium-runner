@@ -1,6 +1,6 @@
 services:
   amine-raptor:
-    image: raptor22sq/seleniumnew:latest
+    image: raptor22sq/seleniumjenk:latest
     environment:
       - BROWSER=chrome
       - HUB_HOST=hub
@@ -11,7 +11,7 @@ services:
       #- /c/Users/User/OneDrive/Documents/Workspace/05-dockerize/grid-test-suites/output/vendor-portal:/home/selenium-docker/test-output
 
   amine-raptor-flight:
-    image: raptor22sq/seleniumnew:latest
+    image: raptor22sq/seleniumjenk:latest
     environment:
       - BROWSER=firefox
       - HUB_HOST=hub
